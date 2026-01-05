@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+mediapipe
+opencv-python-headless
+numpy
+pillow
+pytz
+gunicorn

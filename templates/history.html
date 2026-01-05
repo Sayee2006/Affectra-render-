@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stress History</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>📜 Stress History</h1>
+  <p class="tagline">Your Past Results</p>
+</header>
+
+<nav>
+  <a href="{{ url_for('index') }}">Dashboard</a>
+  <a class="active" href="{{ url_for('history_page') }}">History</a>
+  <a href="{{ url_for('settings_page') }}">Settings</a>
+</nav>
+
+<main>
+  <div class="history-container">
+    <h2>Last 20 Records</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date (IST)</th>
+          <th>Stress %</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for r in records %}
+        <tr>
+          <td>
+            {{ r.created_at.replace(tzinfo=None)
+               .astimezone(ist)
+               .strftime("%d-%m-%Y %I:%M:%S %p") }}
+          </td>
+          <td>{{ (r.stress_value * 100) | round(0) }}%</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer>Stay Calm ❤️</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Settings</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>⚙️ Settings</h1>
+  <p class="tagline">Customize Your Experience</p>
+</header>
+
+<nav>
+  <a href="{{ url_for('index') }}">Dashboard</a>
+  <a href="{{ url_for('history_page') }}">History</a>
+  <a class="active" href="{{ url_for('settings_page') }}">Settings</a>
+</nav>
+
+<main>
+<section class="settings-section">
+  <h2>Preferences</h2>
+  <p>More features coming soon…</p>
+</section>
+</main>
+
+<footer>⚡ Personalize your stress tracking ❤️</footer>
+</body>
+</html>

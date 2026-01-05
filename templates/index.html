@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stress Detector Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>🧠 Stress Detector</h1>
+  <p class="tagline">Track. Improve. Heal.</p>
+</header>
+
+<nav>
+  <a class="active" href="{{ url_for('index') }}">Dashboard</a>
+  <a href="{{ url_for('history_page') }}">History</a>
+  <a href="{{ url_for('settings_page') }}">Settings</a>
+</nav>
+
+<main>
+
+<section class="camera-section">
+  <h2>Live Camera</h2>
+  <video id="video" autoplay muted playsinline></video>
+
+
+  <div class="camera-buttons">
+    <button id="startCamBtn">Start Camera</button>
+    <button id="stopCamBtn" disabled>Stop Camera</button>
+  </div>
+</section>
+
+<section class="result-section">
+  <h2>Current Stress Level</h2>
+  <div id="stress-result">0%</div>
+  <p id="stress-advice">--</p>
+</section>
+
+<section class="cards">
+  <div class="card">
+    <h3>🔥 Current Streak</h3>
+    <p id="streak">0 days</p>
+  </div>
+  <div class="card">
+    <h3>📊 Avg Stress</h3>
+    <p id="avg-stress">--</p>
+  </div>
+  <div class="card">
+    <h3>⏱ Last Check</h3>
+    <p id="last-check">--</p>
+  </div>
+</section>
+
+<section>
+  <button id="saveBtn">Save Today’s Result</button>
+</section>
+
+</main>
+
+<footer>
+  Made with ❤️ to help you feel better
+</footer>
+
+
+<script>
+const formatter = new Intl.DateTimeFormat("en-IN", {
+  dateStyle: "short",
+  timeStyle: "medium",
+  timeZone: "Asia/Kolkata"
+});
+
+async function loadHistory() {
+  const res = await fetch("/api/history?t=" + Date.now());
+  const data = await res.json();
+
+  const body = document.getElementById("historyBody");
+  body.innerHTML = "";
+
+  data.forEach((r, i) => {
+    const tr = document.createElement("tr");
+
+    if (i === 0) {
+      tr.style.background = "#1e3a8a";
+      tr.style.color = "white";
+    }
+
+    tr.innerHTML = `
+      <td>${formatter.format(new Date(r.time))}</td>
+      <td>${Math.round(r.stress *100)}%</td>
+    `;
+    body.appendChild(tr);
+  });
+}
+
+setInterval(loadHistory, 2000);
+loadHistory();
+</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

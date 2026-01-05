@@ -1,0 +1,264 @@
+/* ---------------- BASE ---------------- */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #1e1e1e;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+/* ---------------- VIDEO ---------------- */
+video {
+    width: 60%;
+    border: 2px solid #555;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+/* ---------------- CAMERA BUTTONS ---------------- */
+.camera-buttons {
+    margin-top: 10px;
+}
+
+.camera-buttons button {
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.camera-buttons button:hover {
+    background-color: #45a049;
+}
+
+.camera-buttons button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+}
+
+/* ---------------- STRESS RESULT ---------------- */
+#stress-result {
+    font-size: 32px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: background 0.3s, color 0.3s;
+}
+
+#stress-advice {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* ---------------- STRESS COLORS ---------------- */
+.low-stress {
+    background: #1e4620;
+    color: #8cff8c;
+}
+
+.mild-stress {
+    background: #4b4b00;
+    color: #ffff99;
+}
+
+.high-stress {
+    background: #4d0000;
+    color: #ff6666;
+}
+
+/* ---------------- CARDS ---------------- */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #2c2c2c;
+    padding: 15px;
+    border-radius: 10px;
+    width: 150px;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+/* ---------------- HISTORY TABLE ---------------- */
+#history-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+#history-table th,
+#history-table td {
+    border: 1px solid #555;
+    padding: 8px;
+    text-align: center;
+}
+
+#history-table th {
+    background: #333;
+}
+
+/* ---------------- SAVE BUTTON ---------------- */
+#saveBtn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #2196F3;
+    color: white;
+    cursor: pointer;
+}
+
+#saveBtn:hover {
+    background-color: #1976d2;
+}
+
+
+/* ===== PAGE BASE ===== */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #111, #1e1e1e);
+    color: #f1f1f1;
+}
+
+/* ===== HEADER ===== */
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+.tagline {
+    color: #bdbdbd;
+    margin-top: 8px;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    background: #181818;
+    border-bottom: 1px solid #333;
+}
+
+nav a {
+    color: #aaa;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: #2a2a2a;
+    color: #fff;
+}
+
+nav a.active {
+    background: #2563eb;
+    color: #fff;
+}
+
+/* ===== MAIN CONTAINER ===== */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* ===== HISTORY BOX ===== */
+.history-container {
+    width: 100%;
+    max-width: 800px;
+    background: #1c1c1c;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid #2c2c2c;
+}
+
+/* ===== BOX TITLE ===== */
+.history-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: #ffffff;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #161616;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* ===== TABLE HEADER ===== */
+thead {
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+}
+
+th {
+    padding: 14px;
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* ===== TABLE BODY ===== */
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #2a2a2a;
+    font-size: 14px;
+    color: #e5e5e5;
+}
+
+tbody tr:hover {
+    background: #222;
+    transition: 0.2s;
+}
+
+/* ===== STRESS VALUE COLOR ===== */
+td:last-child {
+    font-weight: bold;
+    color: #f87171; /* stress red */
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-size: 14px;
+}
